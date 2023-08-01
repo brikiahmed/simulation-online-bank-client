@@ -1,0 +1,106 @@
+body {
+  background-color: none;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  width: auto;
+  height: auto;
+}
+
+.op {
+  padding: 4px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+}
+
+.op {
+  padding: 4px;
+  margin: 10px 0;
+  border: none;
+}
+
+form {
+  background-color: none;
+  padding: 33px;
+  width: auto;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(8, 8, 8, 0.1);
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 3px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  outline: none;
+  background: none;
+  border: 1px solid #ccc;
+}
+
+.select {
+  width: 91%;
+}
+
+.input {
+  padding: 4px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+}
+
+button[type=submit] {
+  background-color: #2e88e8;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+}
+
+button[type=submit]:hover {
+  background-color: #2e88e8;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.texte1 {
+  float: left;
+  width: 49%;
+}
+
+.texte2 {
+  float: right;
+  width: 49%;
+}
+
+.action {
+  padding: 0px 25px 20px;
+}
+
+.example-additional-selection {
+  opacity: 0.75;
+  font-size: 0.75em;
+}
+.row {
+  display: flex;
+}
+
+.custom-input {
+  width: 80%;
+}
+
+.custom-input-text-area {
+  width: 183%;
+}

@@ -1,0 +1,53 @@
+.logo {
+    text-align: center;
+    padding: 2.6rem 1rem;
+
+    .image {
+      width: 260px;
+    }
+  }
+
+  .mat-icon {
+    vertical-align: center;
+    margin-right: 1rem;
+  }
+
+  .mat-divider {
+    border-top-width: 2px;
+    border-color: white;
+  }
+
+  .mat-list-item {
+    color: #94a3b8 !important;
+    font-size: 0.8rem;
+    height: 44px !important;
+    margin-bottom: 4px;
+    border-radius: 5px;
+    margin: 0 8px;
+
+    &:hover {
+      background: #2c3344 !important;
+    }
+  }
+
+  .custom-drawer-container {
+    height: 100vh;
+  }
+
+  .custom-drawer {
+    height: 100%;
+    background: linear-gradient(to bottom, #24a18c, #00685e, #007cba);
+  }
+
+  .custom-drawer-content {
+    height: 100vh;
+  }
+
+  .button-container {
+    display: flex;
+  }
+
+  .button-container button {
+    margin-right: 10px;
+  }
+

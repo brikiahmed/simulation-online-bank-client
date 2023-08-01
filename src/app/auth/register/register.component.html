@@ -1,0 +1,79 @@
+<div style="margin-left: 43%;" class="logo py 4">
+	<img src="../../assets/image/logo-ubci-new-charte-header.png" alt="Coompany Logo">
+</div>
+<div class="col-md-12">
+    <div class="card card-container">
+      <form
+        *ngIf="!isSuccessful"
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate
+      >
+        <div class="form-group">
+          <h2 style="margin-left: 10%;">Bienvenue !</h2>
+          <label for="username">Nom</label>
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            [(ngModel)]="form.username"
+            required
+            minlength="3"
+            maxlength="20"
+            #username="ngModel"
+          />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            [(ngModel)]="form.email"
+            required
+            email
+            #email="ngModel"
+          />
+        </div>
+        <div class="form-group">
+          <label for="password">Mot de passe</label>
+          <div class="password-input">
+            <input
+              type="{{ showPassword ? 'password' : 'text' }}"
+              class="form-control"
+              name="password"
+              [(ngModel)]="form.password"
+              required
+              minlength="6"
+              #password="ngModel"
+            />
+            <span style="margin-right: 25px" class="material-icons" (click)="togglePasswordVisibility()">
+            {{ showPassword ? 'visibility_off' : 'visibility' }}
+          </span>
+            <span class="material-icons" (click)="generateRandomPassword()">
+            lock
+          </span>
+          </div>
+        </div>
+
+        <div class="password-strength">
+          <mat-progress-bar mode="determinate" [value]="getPasswordStrength(form.password)"></mat-progress-bar>
+        </div>
+
+
+
+        <div style="margin-block: 2%" class="form-group">
+          <button class="btn btn-primary btn-block">Enregistrer</button>
+        </div>
+
+        <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+          Signup failed!<br />{{ errorMessage }}
+        </div>
+      </form>
+
+      <div class="alert alert-success" *ngIf="isSuccessful">
+        Your registration is successful!
+      </div>
+    </div>
+  </div>

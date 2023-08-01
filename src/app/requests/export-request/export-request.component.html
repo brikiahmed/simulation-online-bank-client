@@ -1,0 +1,37 @@
+<div class="card">
+  <div class="card-header">Export des demandes</div>
+  <div class="card-content">
+    <div class="horizontal-fields">
+      <div class="texte1">
+        <mat-form-field appearance="outline">
+          <mat-label>Type de demande</mat-label>
+          <mat-select [(ngModel)]="typeRequest" class="op">
+            <mat-option *ngFor="let requestType of typeRequests" [value]="requestType.key" class="example-additional-selection">{{ requestType.value }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="texte2">
+        <mat-form-field appearance="outline">
+          <mat-label>Date de création</mat-label>
+          <input matInput [matDatepicker]="datepicker" [(ngModel)]="creationDate" placeholder="Choisir une date" required>
+          <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+          <mat-datepicker #datepicker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div class="texte2">
+        <mat-form-field appearance="outline">
+          <mat-label>Status de demande</mat-label>
+          <mat-select [(ngModel)]="status" class="op">
+            <mat-option *ngFor="let status of listStatus" [value]="status.key" class="example-additional-selection">{{ status.value }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+    </div>
+  </div>
+  <div class="card-footer">
+    <button mat-raised-button color="primary" (click)="exportRequests()">Export Requests</button>
+  </div>
+</div>

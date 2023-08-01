@@ -1,0 +1,21 @@
+<form [formGroup]="formGroup">
+  <div> <h2>Choisir un autre service</h2></div>
+  <div class="clearfix"></div>
+  <div class="row">
+  </div>
+  <div class="clearfix"></div>
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Type de demande</mat-label>
+      <mat-select formControlName="nextService" class="op">
+        <mat-option Class="op1" *ngFor="let listService of listServices" [value]="listService.key" class="example-additional-selection">{{listService.value}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div class="row">
+      <div  mat-dialog-actions class="action">
+        <button mat-button [disabled]="!listServices" (click)="onConfirm()">Confirm</button>
+        <button mat-button (click)="onClose()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</form>

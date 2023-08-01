@@ -1,0 +1,86 @@
+<form [formGroup]="requestForm" (ngSubmit)="onFormSubmit()">
+
+  <div>
+    <h2>{{ isEdit ? 'Traiter la' : 'Nouvelle' }} demande</h2>
+  </div>
+  <div class="row">
+    <div class="texte1">
+      <mat-form-field class="custom-input" appearance="outline"> <mat-label>Réference</mat-label>
+        <input matInput type="text" placeholder="entrer la reference" formControlName="reference"  required />
+      </mat-form-field>
+    </div>
+    <div class="texte1">
+      <mat-form-field class="custom-input" appearance="outline">
+        <mat-label>Type de demande</mat-label>
+        <mat-select formControlName="typeRequest" class="op">
+          <mat-option *ngFor="let typeRequest of typeRequests" [value]="typeRequest.key" class="example-additional-selection">{{typeRequest.value}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="texte2">
+      <mat-form-field class="custom-input" appearance="outline"> <mat-label>Nom</mat-label>
+        <input matInput type="text"placeholder="entrer le nom du client" formControlName="firstName"  required />
+      </mat-form-field>
+    </div>
+    <div class="texte2">
+      <mat-form-field class="custom-input" appearance="outline"> <mat-label>Prénom</mat-label>
+        <input matInput type="text"placeholder="entrer le prénom du client " formControlName="lastName"  required />
+      </mat-form-field>
+    </div>
+    <div class="texte2">
+      <mat-form-field class="custom-input" appearance="outline"> <mat-label>Email</mat-label>
+        <input matInput type="text"placeholder="entrer l'email " formControlName="email"  required />
+      </mat-form-field>
+    </div>
+    <div class="texte2">
+      <mat-form-field class="custom-input" appearance="outline">
+        <mat-label>Date de naissance</mat-label>
+        <input matInput [matDatepicker]="datepicker" formControlName="birthDate" placeholder="Choisir une date" required>
+        <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+        <mat-datepicker #datepicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="texte2">
+      <mat-form-field class="custom-input" appearance="outline"> <mat-label>Cin</mat-label>
+        <input matInput type="number"placeholder="entrer le cin " formControlName="cin"  required />
+      </mat-form-field>
+    </div>
+    <div class="texte2">
+      <mat-form-field class="custom-input" appearance="outline"> <mat-label>Address</mat-label>
+        <input matInput type="text"placeholder="entrer l'addresse " formControlName="address"  required />
+      </mat-form-field>
+    </div>
+    <div class="texte2">
+      <mat-form-field [class.custom-input]="isEdit" [class.custom-input-text-area]="!isEdit" appearance="outline"> <mat-label>Commentaire</mat-label>
+        <textarea matInput placeholder="Notes " formControlName="comment"  required  rows="4"></textarea>
+      </mat-form-field>
+    </div>
+
+    <div *ngIf="isEdit" class="texte1">
+    <mat-form-field class="custom-input" appearance="outline">
+      <mat-label>State</mat-label>
+      <mat-select formControlName="status" class="op">
+        <mat-option value="new">Nouvelle demande</mat-option>
+        <mat-option value="in-progress">En cours de traitement</mat-option>
+        <mat-option value="accepted">Accepter</mat-option>
+        <mat-option value="refused">Refusée</mat-option>
+      </mat-select>
+    </mat-form-field>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="row" style="margin-right: auto">
+    <div class="row">
+      <div  mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Annuler</button>
+        <button mat-raised-button type="submit" color="primary">{{'Enregistrer'}}</button>
+        <button *ngIf="isEdit" mat-raised-button type="button" (click)="sendToOtherService(requestForm)" color="primary">Envoyer vers autre service</button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+</form>

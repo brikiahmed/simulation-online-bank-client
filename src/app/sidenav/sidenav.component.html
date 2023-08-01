@@ -1,0 +1,43 @@
+<mat-nav-list>
+    <div class="logo py 4">
+        <img src="../../assets/image/logo-ubci-new-charte-header.png" alt="Coompany Logo">
+    </div>
+    <mat-divider></mat-divider>
+    <h2 matSubheader class="mt-2"></h2>
+    <a mat-list-item routerLink="/home" routerLinkActive="list-item-active">
+        <mat-icon>home</mat-icon> Acceuil</a>
+    <a mat-list-item routerLink="/Users" routerLinkActive="list-item-active">
+        <mat-icon>list</mat-icon> Utilisateurs</a>
+    <a mat-list-item routerLink="/gabarits" routerLinkActive="list-item-active">
+        <mat-icon>list</mat-icon> Créer gabarits</a>
+    <a mat-list-item routerLink="/ajout-demande" routerLinkActive="list-item-active">
+        <mat-icon>add</mat-icon> Ajout des demandes</a>
+    <a mat-list-item routerLink="/gerer-demandes" routerLinkActive="list-item-active">
+        <mat-icon>list</mat-icon> Gérer les demandes</a>
+  <a mat-list-item routerLink="/archive" routerLinkActive="list-item-active">
+    <mat-icon>archive</mat-icon> Demandes archivées</a>
+  <!-- Parent Menu: Email Template -->
+  <!-- Accordion for Email Template -->
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-icon>email</mat-icon> Email Template
+      </mat-expansion-panel-header>
+
+      <!-- Submenu for Email Template -->
+      <mat-nav-list>
+        <a mat-list-item routerLink="/email-templates/1" routerLinkActive="list-item-active">
+          Email création demande
+        </a>
+        <a mat-list-item routerLink="/email-templates/2" routerLinkActive="list-item-active">
+          Email refus demande
+        </a>
+        <a mat-list-item routerLink="/email-templates/3" routerLinkActive="list-item-active">
+          Email envoie autre service
+        </a>
+      </mat-nav-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+
+</mat-nav-list>

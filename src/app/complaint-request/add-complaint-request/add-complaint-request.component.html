@@ -1,0 +1,17 @@
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+  <mat-card style="width: 80%; height: 80%;">
+    <mat-card-content>
+      <h2>Contenu de la demande du plainte</h2>
+      <ckeditor
+        [editor]="Editor"
+        [(ngModel)]="complaintBody"
+      ></ckeditor>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="onConfirm()">
+        Envoyer la demande
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

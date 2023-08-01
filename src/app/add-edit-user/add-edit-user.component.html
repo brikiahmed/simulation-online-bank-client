@@ -1,0 +1,67 @@
+<form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+ 
+ <div> <h2>User Form</h2></div>  
+    <div class="row">
+      <div class="texte1">
+         <mat-form-field appearance="outline"> <mat-label>First Name</mat-label>
+             <input matInput type="text" placeholder="ex : foulen" formControlName="firstName"  required />
+          </mat-form-field>
+        </div>
+        <div class="texte2">
+            <mat-form-field appearance="outline"> <mat-label>Last Name</mat-label>
+                <input matInput type="text"placeholder="ex : ben foulen " formControlName="lastName"  required /> 
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        
+         <div class="texte1">
+             <mat-form-field appearance="outline">
+                 <mat-label>Role</mat-label>
+                 <mat-select formControlName="role" class="op">
+                <mat-option Class="op1" *ngFor="let val of roles" [value]="val" class="example-additional-selection">{{val}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+         </div>
+        <div class="texte2">
+        <mat-form-field appearance="outline"> <mat-label>Email</mat-label>
+            <input matInput type="text" placeholder="ex : foulen.foulen@gmail.com" formControlName="email"  required />              
+         </mat-form-field>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+        </div>
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="texte1">
+                <mat-form-field appearance="outline"> <mat-label>Matricule</mat-label>
+                    <input matInput type="text" placeholder="foulen123" formControlName="matricule"  required />
+                </mat-form-field>
+            </div>
+            <div class="texte2">
+                <mat-form-field appearance="outline"> <mat-label>Password</mat-label>
+                    <input matInput type="password" placeholder="ex : ******" formControlName="password"  required />           
+                </mat-form-field>
+            </div>
+            <div class="texte1">
+                <mat-form-field appearance="outline"> <mat-label>Phone</mat-label>
+                    <input matInput type="tel" placeholder="ex : +21623516794  " formControlName="phone"  required />
+                </mat-form-field>
+            </div>
+            <div class="texte2">
+                <mat-form-field appearance="outline"> <mat-label>Address</mat-label>
+                    <input matInput type="text" placeholder="ex : 71 rue salem ben arous tunis  1045 " formControlName="address" required /> <br/>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="row">
+        <div  mat-dialog-actions class="action">
+            <button mat-raised-button type="submit" color="primary">{{data? 'update' : 'Save'}}</button>
+            <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+         </div>
+        </div>
+</form>

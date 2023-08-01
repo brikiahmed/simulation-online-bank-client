@@ -1,0 +1,69 @@
+<div style="margin-left: 43%;" class="logo py 4">
+	<img src="../../assets/image/logo-ubci-new-charte-header.png" alt="Coompany Logo">
+</div>
+<div class="col-md-12">
+	<div class="card card-container">
+	  <form
+		*ngIf="!isLoggedIn"
+		name="form"
+		(ngSubmit)="f.form.valid && onSubmit()"
+		#f="ngForm"
+		novalidate
+	  >
+		<div class="form-group">
+			<h2 style="margin-left: 10%;">Bienvenue !</h2>
+
+		  <label for="username">Nom</label>
+		  <input
+			type="text"
+			class="form-control"
+			name="username"
+			[(ngModel)]="form.username"
+			required
+			#username="ngModel"
+		  />
+		</div>
+		<div class="form-group">
+		  <label for="password">Mot de passe</label>
+		  <input
+			type="password"
+			class="form-control"
+			name="password"
+			[(ngModel)]="form.password"
+			required
+			minlength="6"
+			#password="ngModel"
+		  />
+
+		</div>
+      <div>
+        <a routerLink="/forgot-password">Mot de passe oublié ?</a>
+      </div>
+
+		<div class="form-group">
+			<div class="button-container">
+			  <button class="btn btn-primary btn-block">
+				Se connecter
+			  </button>
+
+			  <button class="btn btn-primary" [routerLink]="['/register']" routerLinkActive="router-link-active">
+				S'enregistrer
+			  </button>
+			</div>
+		  </div>
+		<div class="form-group">
+		  <div
+			class="alert alert-danger"
+			role="alert"
+			*ngIf="f.submitted && isLoginFailed"
+		  >
+			Login failed: {{ errorMessage }}
+		  </div>
+		</div>
+	  </form>
+
+	  <div class="alert alert-success" *ngIf="isLoggedIn">
+		Logged in as {{ roles }}.
+	  </div>
+	</div>
+  </div>

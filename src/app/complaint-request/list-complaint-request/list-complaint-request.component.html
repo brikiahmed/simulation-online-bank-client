@@ -1,0 +1,25 @@
+<p>
+  <mat-toolbar class="custom-toolbar" color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>date_range</mat-icon>
+    </button>
+    <span>Date d'envoie de la demande</span>
+    <span class="example-spacer"></span>
+  </mat-toolbar>
+</p>
+
+<div>
+  {{data.creationDate}}
+</div>
+
+<p>
+  <mat-toolbar class="custom-toolbar" color="primary">
+    <mat-toolbar-row>
+      <span>Contenu de la demande</span>
+      <span class="example-spacer"></span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</p>
+
+<div class="centered-content" [innerHTML]="data.constraintBody"></div>
+

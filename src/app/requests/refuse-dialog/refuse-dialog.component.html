@@ -1,0 +1,20 @@
+<h2 mat-dialog-title>Refuser la demande</h2>
+<div mat-dialog-content>
+  <mat-form-field class="custom-input" appearance="outline">
+    <mat-label>Entrer la cause de refus</mat-label>
+    <textarea matInput [(ngModel)]="reasonOfRefuse" placeholder="Ecrire la raison" required rows="4"></textarea>
+  </mat-form-field>
+
+  <div class="radio-group">
+    <mat-label>Autoriser une demande de plainte?</mat-label>
+    <mat-radio-group [(ngModel)]="complaintRequestAllowed">
+      <mat-radio-button value='true'>Oui</mat-radio-button>
+      <mat-radio-button value='false'>Non</mat-radio-button>
+    </mat-radio-group>
+  </div>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button [disabled]="!reasonOfRefuse" (click)="onConfirm()">Confirmer</button>
+  <button mat-button (click)="onClose()">Annuler</button>
+</div>

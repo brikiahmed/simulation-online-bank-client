@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    background-color: aqua;
+  }
+  
+  .clearfix {
+    clear: both; /* évite que les éléments suivants soient affectés par les flottants */
+}
+.texte1 {
+    float: left;
+    width: auto; 
+    margin: auto;/* définit la largeur de la première zone de texte à 50% */
+}
+
+.texte2 {
+    float: right; /* aligne la deuxième zone de texte à droite */
+    width: auto; /* définit la largeur de la deuxième zone de texte à 50% */
+}
+.main-body
+{
+    padding-top: 20px;
+    max-width: 1248px;
+}
+mat-form-field{
+    width: 100%;
+}
+.cl{ padding-top: 20px;
+    padding-bottom: 20px;
+    max-width: 1248px;
+    margin-top: 20px;
+    width: 100%;
+
+   }
+   .bt-left {
+    float: left;
+    text-align: left;
+    width:50%;
+   }
+   .bt-right {
+    float: right;
+    text-align: right;
+    width: 49%;
+
+   }

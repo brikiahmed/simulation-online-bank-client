@@ -1,0 +1,10 @@
+.centered-content {
+  text-align: center; /* Horizontally center the content */
+  padding: 20px; /* Add padding around the content */
+  font-size: 20px; /* Increase the font size to 20 pixels (you can adjust this value as needed) */
+}
+
+.custom-toolbar {
+  background-color: #24a18c; /* Custom background color */
+  color: #ffffff; /* Custom text color */
+}

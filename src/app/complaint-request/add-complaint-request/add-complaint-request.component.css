@@ -1,0 +1,38 @@
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 3px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  outline: none;
+  background: none;
+  border: 1px solid #ccc;
+}
+
+button[type=submit] {
+  background-color: #2e88e8;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: center;
+}
+
+:host ::ng-deep .ck-editor__editable_inline {
+  min-height: 350px;
+}
+
+.custom-input {
+  width: 100%;
+}
+
+.custom-card-title {
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+

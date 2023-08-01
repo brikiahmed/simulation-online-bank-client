@@ -1,0 +1,46 @@
+<form [formGroup]="demandeForm" (ngSubmit)="onFormSubmit()">
+
+  <div> <h2>Demande de passation</h2></div>  
+     <div class="row">
+      <div class="texte1">
+        <mat-form-field appearance="outline"> <mat-label>Réference</mat-label>
+            <input matInput type="text" placeholder="entrer la reference" formControlName="reference"  required />
+         </mat-form-field>
+       </div>
+       <div class="texte1">
+          <mat-form-field appearance="outline"> <mat-label>Désignation</mat-label>
+              <input matInput type="text" placeholder="entrer la designation" formControlName="designation"  required />
+           </mat-form-field>
+         </div>
+         <div class="texte2">
+             <mat-form-field appearance="outline"> <mat-label>Fonction</mat-label>
+                 <input matInput type="text"placeholder="entrer la fonction" formControlName="fonction"  required /> 
+             </mat-form-field>
+         </div>
+         <div class="texte2">
+          <mat-form-field appearance="outline"> <mat-label>Dimension</mat-label>
+              <input matInput type="text"placeholder="entrer la dimension " formControlName="dimension"  required /> 
+          </mat-form-field>
+      </div>
+     </div>
+     <div class="clearfix"></div>
+     <div class="row">
+         
+        
+        
+     </div>
+     <div class="clearfix"></div>
+     <div class="row">
+             <div class="row">
+              <div  mat-dialog-actions class="action">
+                  <button mat-raised-button type="submit" color="primary">{{'Enregistrer'}}</button>
+                  <button mat-raised-button type="button" [mat-dialog-close]="false">Annuler</button>
+               </div>
+              </div>
+         </div>
+      
+             
+          
+ 
+        
+ </form>

@@ -1,0 +1,33 @@
+<mat-drawer-container class="custom-drawer-container">
+    <mat-drawer *ngIf="isLoggedIn" mode="side" [opened]="shouldShowSidenav()" class="custom-drawer">
+      <app-sidenav></app-sidenav>
+    </mat-drawer>
+    <mat-drawer-content class="custom-drawer-content">
+      <mat-toolbar *ngIf="showHeaderAndSidenav" class="custom-toolbar">
+        <mat-toolbar-row class="justify-content-between">
+          <button *ngIf="isLoggedIn" mat-icon-button (click)="toggleSidebar()">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <div *ngIf="isLoggedIn" class="row mr-2 ml-auto">
+            <ul class="row m-0 align-items-center">
+              <li>
+                <button mat-button [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-items-center">
+                  <img src="./assets/user.jpg" alt="" class="user-image mr-1 p-2" />
+                  Nom d'accès
+                  <mat-icon class="user-image-icon ml-1">keyboard_arrow_down</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item (click)="logout()">
+                    <mat-icon>exit_to_app</mat-icon>
+                    Déconnexion
+                  </button>
+                </mat-menu>
+              </li>
+            </ul>
+          </div>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>
+  
