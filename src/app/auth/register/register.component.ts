@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { RegisterService } from '../../register.service';
 import { UsersService } from '../../users.service';
 import { AuthService } from '../../auth.service';
+import {ToastrService} from "ngx-toastr";
+
 
 @Component({
   selector: 'app-register',
@@ -23,7 +25,8 @@ export class RegisterComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router,
+  private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -56,6 +59,8 @@ export class RegisterComponent implements OnInit {
 
     this.authService.register(username, email, password).subscribe(
       data => {
+        this.toastr.success('Merci de vérifier votre boite mail', 'Success');
+
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
