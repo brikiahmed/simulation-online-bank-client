@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import {NavigationEnd, Router} from '@angular/router';
 import { TokenStorageService } from './_services/token-storage.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,10 @@ export class AppComponent implements OnInit {
   showModeratorBoard = false;
   username?: string;
 
-  constructor(private router: Router, private tokenStorageService: TokenStorageService) {}
+  constructor(private router: Router,
+              private tokenStorageService: TokenStorageService,
+              private location: Location
+              ) {}
 
   ngOnInit(): void {
     /*this.router.events.subscribe((event) => {
@@ -43,8 +47,10 @@ export class AppComponent implements OnInit {
 
   logout(): void {
     this.tokenStorageService.signOut();
-    this.router.navigate( ['/login']);
-  }
+    this.router.navigate(['/login']).then(() => {
+      // Trigger a page refresh to clear any previous state and refresh the app.
+      window.location.reload();
+    });  }
 
   shouldShowSidenav(): boolean {
     return this.showHeaderAndSidenav;
