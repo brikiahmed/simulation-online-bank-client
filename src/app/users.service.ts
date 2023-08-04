@@ -20,6 +20,10 @@ return this._http.post(' http://localhost:8085/bank-back/User/CreateUser',data);
     return this._http.get(`http://localhost:8085/bank-back/User/all`);
   }
 
+  getCountUserList():Observable<any> {
+    return this._http.get(`http://localhost:8085/bank-back/User/count`);
+  }
+
   deleteUser(id : string):Observable<any> {
     return this._http.delete(`http://localhost:8085/bank-back/User/${id}`);  }
 

@@ -1,6 +1,35 @@
-<div class="container-fluid"></div>
-<div class="page__box p-3 mt-2">Accueil</div>
-<div class="page__content shadow p-3">
-    <h1>Welcome to the Home Page</h1>
-    <p>This is the content of the home page.</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Total des demandes</h2>
+      <app-stats-chart
+        [pieChartDatasets]="[{ data: [data[0], data[1], data[2]] }]"
+        [pieChartLabels]="[['Nouvelle demandes'], ['Demande en cours'], 'Demande refusée']"
+      ></app-stats-chart>
+    </div>
+    <div class="col-md-6">
+      <h2>Total des utilisateurs</h2>
+      <table mat-table [dataSource]="[{}]">
+        <ng-container matColumnDef="users">
+          <th mat-header-cell *matHeaderCellDef>Nombre</th>
+          <td mat-cell *matCellDef="let element">{{ numberOfUsers }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="['users']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['users']"></tr>
+      </table>
+    </div>
+  </div>
 </div>
+
+
+<div>
+  <h2>Type des demandes au cours des années</h2>
+  <canvas baseChart
+          [datasets]="barChartData.datasets"
+          [labels]="barChartData.labels"
+          [options]="chartOptions"
+          [type]="'bar'"
+  ></canvas>
+</div>
+

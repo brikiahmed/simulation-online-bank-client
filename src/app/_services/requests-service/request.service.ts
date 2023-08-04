@@ -30,6 +30,14 @@ export class RequestService {
     return this._http.put(`http://localhost:8085/bank-back/request/archive/${requestId}`, data);
   }
 
+  getRequestStatusCount(): Observable<any> {
+    return this._http.get('http://localhost:8085/bank-back/request/status');
+  }
+
+  getRequestByCreationDateAndTypeRequestCount(): Observable<any> {
+    return this._http.get('http://localhost:8085/bank-back/request/creation-date');
+  }
+
   exportRequests(typeRequest: string, date: string, status: string): Observable<Blob> {
     let params = new HttpParams();
     params = params.append('typeRequest', typeRequest);

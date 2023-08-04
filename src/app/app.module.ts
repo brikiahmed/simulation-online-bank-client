@@ -57,6 +57,8 @@ import { ResetPasswordComponent } from './auth/reset-password/reset-password.com
 import { AddComplaintRequestComponent } from './complaint-request/add-complaint-request/add-complaint-request.component';
 import { ListComplaintRequestComponent } from './complaint-request/list-complaint-request/list-complaint-request.component';
 import {MatBadgeModule} from "@angular/material/badge";
+import { StatChartComponent } from './stat-chart/stat-chart.component';
+import {NgChartsModule} from "ng2-charts";
 
 @NgModule({
   declarations: [
@@ -84,6 +86,8 @@ import {MatBadgeModule} from "@angular/material/badge";
     ResetPasswordComponent,
     AddComplaintRequestComponent,
     ListComplaintRequestComponent,
+    StatChartComponent,
+    StatChartComponent,
   ],
   imports: [
     CKEditorModule,
@@ -121,7 +125,7 @@ import {MatBadgeModule} from "@angular/material/badge";
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       positionClass: 'toast-center-center',
-    }), MatProgressBarModule, MatBadgeModule,
+    }), MatProgressBarModule, MatBadgeModule, NgChartsModule,
   ],
   providers: [
     authInterceptorProviders,
