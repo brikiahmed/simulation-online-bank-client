@@ -6,17 +6,13 @@
       <div class="row mr-2 ml-auto">
         <ul class="row m-0 align-items-center">
           <li>
-            <button
-              mat-button
+            <button mat-button
               [matMenuTriggerFor]="menu"
-              class="user mt-2 d-flex align-items-center"
-            > 
-              <img src="./assets/user.jpg" alt="" class="user-image mr-1 p-2" />
-  
+              class="user mt-2 d-flex align-items-center">
+              <img src="./assets/image/ghofrane.jpg" alt="" class="user-image mr-1 p-2" />
+
               Nom d'accès
-              <mat-icon class="user-image-icon ml-1"
-                >keyboard_arrow_down</mat-icon
-              >
+              <mat-icon class="user-image-icon ml-1">keyboard_arrow_down</mat-icon>
             </button>
             <mat-menu #menu="matMenu">
               <button mat-menu-item  routerLink="/Login">
@@ -24,6 +20,18 @@
                 Déconnexion
               </button>
             </mat-menu>
+
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item routerLink="/Profile">
+                <mat-icon>account_circle</mat-icon>
+                Voir Profile</button>
+
+            </mat-menu>
+
+          <a routerLink="profile"><i class="fa fa-pencil"></i>Editer Profile</a>
+            <a routerLink="reset-password"><i class="fa fa-pencil"></i>Changer le mot de passe</a>
+
+
           </li>
         </ul>
       </div>

@@ -52,6 +52,7 @@ export class AppComponent implements OnInit {
       window.location.reload();
     });  }
 
+
   shouldShowSidenav(): boolean {
     return this.showHeaderAndSidenav;
   }

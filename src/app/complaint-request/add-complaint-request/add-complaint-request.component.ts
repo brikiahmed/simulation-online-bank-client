@@ -8,7 +8,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
   styleUrls: ['./add-complaint-request.component.css']
 })
 export class AddComplaintRequestComponent {
-  public Editor = ClassicEditor;
+  public Editor : any;
   complaintBody: any;
 
   constructor(

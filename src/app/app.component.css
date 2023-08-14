@@ -32,6 +32,7 @@
 
   .custom-drawer-container {
     height: 100vh;
+    background: linear-gradient(to bottom, #A2D9CE, #EBF5FB, #E9F7EF);
   }
 
   .custom-drawer {
@@ -41,6 +42,7 @@
 
   .custom-drawer-content {
     height: 100vh;
+
   }
 
   .button-container {

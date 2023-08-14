@@ -1,14 +1,14 @@
 mat-drawer-container {
     height: 100vh;
+
   }
-  
+
   mat-drawer {
     height: 100%;
 
     background: linear-gradient(to bottom,#1f2935, #6a8eb8, #6e4ea1);
   }
-  
+
   mat-drawer-content {
     height: 100vh;
   }
-  

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {EmailTemplateService} from "../_services/email-template-service/email-template.service";
 import {ActivatedRoute} from "@angular/router";
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 import {ToastrService} from "ngx-toastr";
 
 @Component({
@@ -12,7 +13,7 @@ import {ToastrService} from "ngx-toastr";
 export class EmailTemplateComponent {
   templateId: any;
   emailTemplate: any;
-  public Editor = ClassicEditor;
+  public Editor : any;
 
   constructor(private emailTemplateService: EmailTemplateService,
               private route: ActivatedRoute,
