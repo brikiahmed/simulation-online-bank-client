@@ -4,21 +4,19 @@
     </div>
     <mat-divider></mat-divider>
     <h2 matSubheader class="mt-2"></h2>
-    <a mat-list-item routerLink="/home" routerLinkActive="list-item-active">
+    <a *ngIf="roles === 'ROLE_ADMIN'" mat-list-item routerLink="/home" routerLinkActive="list-item-active">
         <mat-icon>home</mat-icon> Acceuil</a>
-    <a mat-list-item routerLink="/Users" routerLinkActive="list-item-active">
+    <a *ngIf="roles === 'ROLE_ADMIN'" mat-list-item routerLink="/Users" routerLinkActive="list-item-active">
         <mat-icon>list</mat-icon> Utilisateurs</a>
-    <a mat-list-item routerLink="/gabarits" routerLinkActive="list-item-active">
-        <mat-icon>list</mat-icon> Créer gabarits</a>
     <a mat-list-item routerLink="/ajout-demande" routerLinkActive="list-item-active">
         <mat-icon>add</mat-icon> Ajout des demandes</a>
     <a mat-list-item routerLink="/gerer-demandes" routerLinkActive="list-item-active">
         <mat-icon>list</mat-icon> Gérer les demandes</a>
-  <a mat-list-item routerLink="/archive" routerLinkActive="list-item-active">
+  <a *ngIf="roles === 'ROLE_ADMIN'" mat-list-item routerLink="/archive" routerLinkActive="list-item-active">
     <mat-icon>archive</mat-icon> Demandes archivées</a>
   <!-- Parent Menu: Email Template -->
   <!-- Accordion for Email Template -->
-  <mat-accordion>
+  <mat-accordion *ngIf="roles === 'ROLE_ADMIN'">
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-icon>email</mat-icon> Email Template

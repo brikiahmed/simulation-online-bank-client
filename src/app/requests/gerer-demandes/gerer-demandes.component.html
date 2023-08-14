@@ -6,7 +6,7 @@
           <div class="bt-left">
             <h4><b>Liste des demandes</b></h4>
           </div>
-          <div style="text-align: right">
+          <div style="text-align: right" *ngIf="roles === 'ROLE_ADMIN'">
             <button mat-icon-button color="primary" class="enclosed-button" matTooltip="Exporter les demandes" (click)="openExportDialog()">
               <mat-icon>file_download</mat-icon>
             </button>
@@ -85,10 +85,10 @@
                   <button mat-icon-button matTooltip="Traiter la demande" color="primary" (click)="openEditRequestForm(row)">
                     <mat-icon>edit</mat-icon>
                   </button>
-                  <button mat-icon-button color="warn" matTooltip="Refuser la demande" (click)="openRefuseDialog(row.id, row)">
+                  <button *ngIf="roles === 'ROLE_ADMIN'" mat-icon-button color="warn" matTooltip="Refuser la demande" (click)="openRefuseDialog(row.id, row)">
                     <mat-icon>assignment_late</mat-icon>
                   </button>
-                  <button *ngIf="row.status === 'refused' || row.status === 'accepted'" mat-icon-button color="primary" matTooltip="Archiver la demande" (click)="archiveRequest(row.id, row)">
+                  <button *ngIf="(row.status === 'refused' || row.status === 'accepted') && roles === 'ROLE_ADMIN'" mat-icon-button color="primary" matTooltip="Archiver la demande" (click)="archiveRequest(row.id, row)">
                     <mat-icon>archive</mat-icon>
                   </button>
                   <button *ngIf="row.status === 'refused' && row.complaintRequestAllowed === true" mat-icon-button color="accent" matTooltip="Ajouter une demande de plainte" (click)="openAddConstraintRequestModal(row)">

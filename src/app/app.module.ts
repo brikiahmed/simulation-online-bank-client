@@ -34,7 +34,6 @@ import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
-import { AddEditGabComponent } from './add-edit-gab/add-edit-gab.component';
 import { FormsModule } from '@angular/forms';
 import { ConfirmDemandeComponent } from './requests/send-request-to-service/confirm-demande.component';
 import { RegisterComponent } from './auth/register/register.component';
@@ -59,6 +58,7 @@ import { ListComplaintRequestComponent } from './complaint-request/list-complain
 import {MatBadgeModule} from "@angular/material/badge";
 import { StatChartComponent } from './stat-chart/stat-chart.component';
 import {NgChartsModule} from "ng2-charts";
+import {AuthService} from "./_services/auth.service";
 
 @NgModule({
   declarations: [
@@ -73,7 +73,6 @@ import {NgChartsModule} from "ng2-charts";
     HeaderComponent,
     HomeComponent,
     AcceuilComponent,
-    AddEditGabComponent,
     ConfirmDemandeComponent,
     RegisterComponent,
     VerifyEmailComponent,
@@ -128,6 +127,7 @@ import {NgChartsModule} from "ng2-charts";
     }), MatProgressBarModule, MatBadgeModule, NgChartsModule,
   ],
   providers: [
+    AuthService,
     authInterceptorProviders,
     { provide: MAT_DIALOG_DATA, useValue: {} }
   ],

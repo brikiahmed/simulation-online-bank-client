@@ -16,6 +16,7 @@ import {count, Observable} from "rxjs";
 import {
   ListComplaintRequestComponent
 } from "../../complaint-request/list-complaint-request/list-complaint-request.component";
+import {AuthService} from "../../_services/auth.service";
 
 @Component({
   selector: 'app-gerer-demandes',
@@ -55,6 +56,7 @@ export class GererDemandesComponent implements OnInit {
     { key: 'service-portability-request', value: 'Service de portabilité' },
     { key: 'service-disputes', value: 'Service de litiges' }
   ];
+  roles : any;
 
 
   constructor(private route: ActivatedRoute,
@@ -62,10 +64,12 @@ export class GererDemandesComponent implements OnInit {
               private requestService: RequestService,
               private complaintRequestService: ConstraintRequestService,
               private router: Router,
-              private toastr: ToastrService
+              private toastr: ToastrService,
+              private roleService: AuthService
   ) {
   }
   ngOnInit(): void {
+    this.roles = this.roleService.getUserRoles();
     this.getDemandeList();
     this.getAllRequestsWithConstraintInfo();
   }

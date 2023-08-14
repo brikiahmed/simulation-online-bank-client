@@ -12,7 +12,11 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private http: HttpClient) { }
+  private userRoles: string[] = [];
+
+  constructor(private http: HttpClient) {
+    this.loadUserRole();
+  }
 
   login(username: string, password: string): Observable<any> {
     return this.http.post(AUTH_API + 'signin', {
@@ -37,5 +41,17 @@ export class AuthService {
       email,
       password
     }, httpOptions);
+  }
+
+  private loadUserRole() {
+    const jsonString: any = sessionStorage.getItem('auth-user');
+    const jsonObject = JSON.parse(jsonString);
+    if (jsonObject) {
+      this.userRoles = jsonObject.roles[0];
+    }
+  }
+
+  getUserRoles(): string[] {
+    return this.userRoles;
   }
 }

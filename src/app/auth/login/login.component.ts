@@ -1,13 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { UsersService } from '../../users.service';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../auth.service';
-import { AddEditUserComponent } from '../../add-edit-user/add-edit-user.component';
-import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 import { TokenStorageService } from '../../_services/token-storage.service';
 
 @Component({
@@ -26,7 +19,9 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
+  constructor(private authService: AuthService,
+              private tokenStorage: TokenStorageService,
+              private router: Router) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
@@ -56,6 +51,16 @@ export class LoginComponent implements OnInit {
   }
 
   reloadPage(): void {
-    window.location.reload();
+    console.log(this.roles);
+    if (this.roles && this.roles[0] === 'ROLE_ADMIN') {
+      this.router.navigate(['/home']).then(() => {
+        window.location.reload();
+      });
+    } else {
+      this.router.navigate(['/gerer-demandes']).then(() => {
+        window.location.reload();
+      });
+    }
+
   }
 }
