@@ -12,7 +12,9 @@ import {ToastrService} from "ngx-toastr";
 export class EmailTemplateComponent {
   templateId: any;
   emailTemplate: any;
-  public Editor = ClassicEditor;
+  public Editor  = ClassicEditor as {
+    create: any;
+  };
 
   constructor(private emailTemplateService: EmailTemplateService,
               private route: ActivatedRoute,

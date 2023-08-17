@@ -59,6 +59,7 @@ import {MatBadgeModule} from "@angular/material/badge";
 import { StatChartComponent } from './stat-chart/stat-chart.component';
 import {NgChartsModule} from "ng2-charts";
 import {AuthService} from "./_services/auth.service";
+import { DispatchComponent } from './dispatch/dispatch.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +88,7 @@ import {AuthService} from "./_services/auth.service";
     ListComplaintRequestComponent,
     StatChartComponent,
     StatChartComponent,
+    DispatchComponent,
   ],
   imports: [
     CKEditorModule,

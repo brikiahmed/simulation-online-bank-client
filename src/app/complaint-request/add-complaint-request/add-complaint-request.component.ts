@@ -1,6 +1,7 @@
 import {Component, Inject} from '@angular/core';
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-complaint-request',
@@ -8,10 +9,14 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
   styleUrls: ['./add-complaint-request.component.css']
 })
 export class AddComplaintRequestComponent {
-  public Editor = ClassicEditor;
+
+  public Editor = ClassicEditor as {
+    create: any;
+  };
   complaintBody: any;
 
   constructor(
+    private router: Router,
     public dialogRef: MatDialogRef<AddComplaintRequestComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {

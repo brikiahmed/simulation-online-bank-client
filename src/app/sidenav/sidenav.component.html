@@ -5,13 +5,15 @@
     <mat-divider></mat-divider>
     <h2 matSubheader class="mt-2"></h2>
     <a *ngIf="roles === 'ROLE_ADMIN'" mat-list-item routerLink="/home" routerLinkActive="list-item-active">
-        <mat-icon>home</mat-icon> Acceuil</a>
+        <mat-icon>home</mat-icon> Home</a>
     <a *ngIf="roles === 'ROLE_ADMIN'" mat-list-item routerLink="/Users" routerLinkActive="list-item-active">
-        <mat-icon>list</mat-icon> Utilisateurs</a>
+        <mat-icon>supervised_user_circle</mat-icon> Utilisateurs</a>
     <a mat-list-item routerLink="/ajout-demande" routerLinkActive="list-item-active">
         <mat-icon>add</mat-icon> Ajout des demandes</a>
     <a mat-list-item routerLink="/gerer-demandes" routerLinkActive="list-item-active">
-        <mat-icon>list</mat-icon> Gérer les demandes</a>
+        <mat-icon>list</mat-icon> Gestion des demandes</a>
+  <a *ngIf="roles === 'ROLE_ADMIN'" mat-list-item routerLink="/list-complaint-request" routerLinkActive="list-item-active">
+    <mat-icon>add_alert</mat-icon> Gestion des demandes de plainte</a>
   <a *ngIf="roles === 'ROLE_ADMIN'" mat-list-item routerLink="/archive" routerLinkActive="list-item-active">
     <mat-icon>archive</mat-icon> Demandes archivées</a>
   <!-- Parent Menu: Email Template -->

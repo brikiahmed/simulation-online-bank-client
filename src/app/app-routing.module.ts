@@ -14,6 +14,9 @@ import {ArchivedRequestComponent} from "./requests/archived-request/archived-req
 import {EmailTemplateComponent} from "./email-template/email-template.component";
 import {ForgetPasswordComponent} from "./auth/forget-password/forget-password.component";
 import {ResetPasswordComponent} from "./auth/reset-password/reset-password.component";
+import {
+  ListComplaintRequestComponent
+} from "./complaint-request/list-complaint-request/list-complaint-request.component";
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -29,6 +32,7 @@ const routes: Routes = [
   {path:'archive', component:ArchivedRequestComponent},
   {path:'forgot-password', component:ForgetPasswordComponent},
   { path: 'reset-password', component: ResetPasswordComponent },
+  { path: 'list-complaint-request', component: ListComplaintRequestComponent},
   { path: 'email-templates/:id', component: EmailTemplateComponent }, // Route with template ID as a parameter
 ];
 

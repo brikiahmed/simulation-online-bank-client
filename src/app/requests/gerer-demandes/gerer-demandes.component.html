@@ -15,7 +15,7 @@
       </div>
       <div class="main-body">
         <mat-form-field>
-          <mat-label>Filter</mat-label>
+          <mat-label>Search</mat-label>
           <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
         </mat-form-field>
 
@@ -74,6 +74,11 @@
               <th mat-header-cell *matHeaderCellDef mat-sort-header>Service suivant</th>
               <td mat-cell *matCellDef="let row">{{row.nextService}}</td>
             </ng-container>
+            <!-- Fonction Column -->
+            <ng-container matColumnDef="creationDate">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Date création</th>
+              <td mat-cell *matCellDef="let row">{{row.creationDate}}</td>
+            </ng-container>
 
             <!-- Action Column -->
             <ng-container matColumnDef="Action">
@@ -85,17 +90,17 @@
                   <button mat-icon-button matTooltip="Traiter la demande" color="primary" (click)="openEditRequestForm(row)">
                     <mat-icon>edit</mat-icon>
                   </button>
-                  <button *ngIf="roles === 'ROLE_ADMIN'" mat-icon-button color="warn" matTooltip="Refuser la demande" (click)="openRefuseDialog(row.id, row)">
+                  <button *ngIf="roles === 'ROLE_ADMIN' && row.status != 'refused' && row.status != 'accepted'" mat-icon-button color="warn" matTooltip="Refuser la demande" (click)="openRefuseDialog(row.id, row)">
                     <mat-icon>assignment_late</mat-icon>
                   </button>
                   <button *ngIf="(row.status === 'refused' || row.status === 'accepted') && roles === 'ROLE_ADMIN'" mat-icon-button color="primary" matTooltip="Archiver la demande" (click)="archiveRequest(row.id, row)">
                     <mat-icon>archive</mat-icon>
                   </button>
-                  <button *ngIf="row.status === 'refused' && row.complaintRequestAllowed === true" mat-icon-button color="accent" matTooltip="Ajouter une demande de plainte" (click)="openAddConstraintRequestModal(row)">
+                  <button *ngIf="row.status === 'refused' && row.complaintRequestAllowed === true && roles === 'ROLE_USER'" mat-icon-button color="accent" matTooltip="Ajouter une demande de plainte" (click)="openAddConstraintRequestModal(row)">
                     <mat-icon>note_add</mat-icon>
                   </button>
                   <div *ngFor="let requests of requestsWithConstraintInfo">
-                    <button *ngIf="requests.request !== null && requests.request.id === row.id" mat-icon-button color="accent" matTooltip="Voir la demande de plainte" (click)="openComplaintRequestModal(row.id)">
+                    <button *ngIf="requests.request !== null && requests.request.id === row.id && roles === 'ROLE_ADMIN'" mat-icon-button color="accent" matTooltip="Voir la demande de plainte" (click)="openComplaintRequestModal(row.id)">
                       <mat-icon matBadge="1" matBadgeColor="warn">add_alert</mat-icon>
                     </button>
                   </div>

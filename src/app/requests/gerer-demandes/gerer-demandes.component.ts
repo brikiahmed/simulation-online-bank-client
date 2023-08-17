@@ -242,4 +242,6 @@ export class GererDemandesComponent implements OnInit {
       console.error('Error fetching requests with constraint info:', error);
     }
   }
+
+
 }
